@@ -12,8 +12,10 @@ import com.pi.newsc40.data.utils.InternetConnectionChecker
 import com.pi.newsc40.databinding.ActivityHomeBinding
 import com.pi.newsc40.ui.base.BaseActivity
 import com.pi.newsc40.ui.screens.home.fragments.categories.CategoriesFragment
+import com.pi.newsc40.ui.screens.home.fragments.news.NewsViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class HomeActivity : BaseActivity<ActivityHomeBinding>() {
     val categoriesFragment = CategoriesFragment()
 

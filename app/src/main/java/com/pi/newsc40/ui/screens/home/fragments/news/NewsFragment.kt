@@ -9,6 +9,7 @@ import android.view.View
 import android.view.View.OnClickListener
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.tabs.TabLayout
@@ -22,18 +23,20 @@ import com.pi.newsc40.databinding.FragmentNewsBinding
 import com.pi.newsc40.ui.base.BaseFragment
 import com.pi.newsc40.ui.model.Category
 import com.pi.newsc40.ui.screens.home.adapter.NewsAdapter
+import dagger.hilt.android.AndroidEntryPoint
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+@AndroidEntryPoint
 class NewsFragment(private var category: Category) : BaseFragment<FragmentNewsBinding>() {
     lateinit var adapter: NewsAdapter
-    lateinit var viewModel: NewsViewModel
+    private val viewModel: NewsViewModel by viewModels()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        viewModel = ViewModelProvider(this)[NewsViewModel::class.java]
+//        viewModel = ViewModelProvider(this)[NewsViewModel::class.java]
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_news, container, false)
         binding!!.lifecycleOwner = viewLifecycleOwner // Important for LiveData

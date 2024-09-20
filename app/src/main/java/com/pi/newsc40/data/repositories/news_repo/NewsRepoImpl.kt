@@ -5,11 +5,10 @@ import com.pi.newsc40.data.api.model.Source
 import com.pi.newsc40.data.repositories.news_repo.data_sources.local_data_source.NewsLocalDataSource
 import com.pi.newsc40.data.repositories.news_repo.data_sources.remote_data_source.NewsRemoteDataSource
 import com.pi.newsc40.data.utils.InternetConnectionChecker
+import javax.inject.Inject
 
-class NewsRepoImpl(private var localDataSource: NewsLocalDataSource,
-                   private var remoteDataSource:NewsRemoteDataSource,
-
-    ): NewsRepo {
+class NewsRepoImpl @Inject constructor(private var localDataSource: NewsLocalDataSource,
+                   private var remoteDataSource:NewsRemoteDataSource, ): NewsRepo {
 
     override suspend fun getSources(categoryId: String): List<Source>{
         return if(InternetConnectionChecker.isOnline()){

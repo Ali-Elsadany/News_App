@@ -2,7 +2,9 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
     id("kotlin-kapt")
-    id("com.google.devtools.ksp") version "1.9.0-1.0.13"
+    id("com.google.dagger.hilt.android")
+   // id("com.google.devtools.ksp") version "2.0.20-1.0.25"
+
 }
 
 android {
@@ -62,9 +64,19 @@ dependencies {
     implementation(libs.room.runtime)
     implementation(libs.room.ktx)
     // To use Kotlin annotation processing tool (kapt)
-    ksp(libs.room.compiler)
-    //////
+    kapt(libs.room.compiler)
+    // Hilt
+    implementation("com.google.dagger:hilt-android:2.51.1")
+    kapt("com.google.dagger:hilt-android-compiler:2.51.1")
+    ////
+    implementation ("androidx.activity:activity-ktx:1.9.2")
+    implementation("androidx.fragment:fragment-ktx:1.8.3")
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+}
+
+// Allow references to generated code
+kapt {
+    correctErrorTypes = true
 }

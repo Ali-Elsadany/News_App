@@ -3,8 +3,9 @@ package com.pi.newsc40.data.repositories.news_repo.data_sources.local_data_sourc
 import com.pi.newsc40.data.api.model.ArticlesResponse
 import com.pi.newsc40.data.api.model.Source
 import com.pi.newsc40.data.database.MyDataBase
+import javax.inject.Inject
 
-class NewsLocalDataSourceImpl(private var myDataBase: MyDataBase) : NewsLocalDataSource {
+class NewsLocalDataSourceImpl  @Inject constructor(private var myDataBase: MyDataBase) : NewsLocalDataSource {
 
     override suspend fun getSources(categoryId: String): List<Source> {
         return myDataBase.getSourcesDao().getSources(categoryId)

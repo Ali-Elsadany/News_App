@@ -13,11 +13,12 @@ import com.pi.newsc40.data.repositories.news_repo.NewsRepoImpl
 import com.pi.newsc40.data.repositories.news_repo.data_sources.local_data_source.NewsLocalDataSourceImpl
 import com.pi.newsc40.data.repositories.news_repo.data_sources.remote_data_source.NewsRemoteDataSource
 import com.pi.newsc40.data.repositories.news_repo.data_sources.remote_data_source.NewsRemoteDataSourceImpl
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class NewsViewModel : ViewModel() {
-    val newsRepo: NewsRepo = NewsRepoImpl(NewsLocalDataSourceImpl(MyDataBase.getInstance()),
-        NewsRemoteDataSourceImpl(ApiManager.webServices()))
+@HiltViewModel
+class NewsViewModel @Inject constructor(var newsRepo: NewsRepo): ViewModel() {
     val isLoadingLiveData: MutableLiveData<Boolean> = MutableLiveData()
     val errorLiveData: MutableLiveData<String?> = MutableLiveData()
     val sourcesLiveData: MutableLiveData<List<Source?>> = MutableLiveData()
