@@ -1,32 +1,20 @@
 package com.pi.newsc40.ui.screens.home.fragments.news
 
-import android.database.Observable
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.OnClickListener
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.tabs.TabLayout
-import com.google.gson.Gson
 import com.pi.newsc40.R
-import com.pi.newsc40.data.api.ApiManager
-import com.pi.newsc40.data.api.model.ArticlesResponse
-import com.pi.newsc40.data.api.model.Source
-import com.pi.newsc40.data.api.model.SourcesResponse
+import com.pi.newsc40.data.api.model.SourceDM
 import com.pi.newsc40.databinding.FragmentNewsBinding
+import com.pi.newsc40.domain.model.Source
 import com.pi.newsc40.ui.base.BaseFragment
 import com.pi.newsc40.ui.model.Category
 import com.pi.newsc40.ui.screens.home.adapter.NewsAdapter
 import dagger.hilt.android.AndroidEntryPoint
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 @AndroidEntryPoint
 class NewsFragment(private var category: Category) : BaseFragment<FragmentNewsBinding>() {
@@ -93,11 +81,11 @@ class NewsFragment(private var category: Category) : BaseFragment<FragmentNewsBi
         })
     }
 
-    private fun showTabs(sources: List<Source?>) {
+    private fun showTabs(sources: List<Source>) {
         for (source in sources) {
             val tab = binding!!.tabLayout.newTab()
-            tab.text = source?.name
-            tab.tag = source?.id
+            tab.text = source.name
+            tab.tag = source.id
             binding!!.tabLayout.addTab(tab)
         }
     }

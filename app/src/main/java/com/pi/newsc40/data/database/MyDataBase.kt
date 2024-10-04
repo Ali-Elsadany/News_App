@@ -4,10 +4,10 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.pi.newsc40.data.api.model.Source
+import com.pi.newsc40.data.api.model.SourceDM
 import com.pi.newsc40.data.database.dao.SourcesDao
 
-@Database(entities = [Source::class], version = 1)
+@Database(entities = [SourceDM::class], version = 2)
 abstract class MyDataBase: RoomDatabase() {
 
     abstract fun getSourcesDao(): SourcesDao

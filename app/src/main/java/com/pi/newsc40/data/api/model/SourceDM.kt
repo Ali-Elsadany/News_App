@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
 @Entity
-data class Source(
+data class SourceDM(
 
 	@field:SerializedName("country")
 	val country: String? = null,

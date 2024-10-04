@@ -6,7 +6,7 @@
     <data>
         <variable
             name="article"
-            type="com.pi.newsc40.data.api.model.Article" />
+            type="com.pi.newsc40.domain.model.Article" />
     </data>
 
     <LinearLayout
@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="220dp"
             android:scaleType="fitXY"
-            imageUrl="@{article.urlToImage}"
+            imageUrl="@{article.imageUrl}"
             app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize10Percent"
             tools:src="@tools:sample/backgrounds/scenic" />
 
@@ -42,7 +42,7 @@
             android:id="@+id/newsDateTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{article.publishedAt}"
+            android:text="@{article.date}"
              />
     </LinearLayout>
 </layout>

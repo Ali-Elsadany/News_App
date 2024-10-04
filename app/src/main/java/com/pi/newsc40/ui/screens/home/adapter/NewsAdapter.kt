@@ -5,11 +5,10 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
-import com.bumptech.glide.Glide
 import com.pi.newsc40.R
-import com.pi.newsc40.data.api.model.Article
+import com.pi.newsc40.data.api.model.ArticleDM
 import com.pi.newsc40.databinding.ItemNewsBinding
-import com.pi.newsc40.ui.screens.home.HomeActivity
+import com.pi.newsc40.domain.model.Article
 
 class NewsAdapter(var articles: List<Article?>) : Adapter<NewsAdapter.NewsViewHolder>() {
 

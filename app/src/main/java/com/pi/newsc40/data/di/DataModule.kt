@@ -1,6 +1,6 @@
 package com.pi.newsc40.data.di
 
-import com.pi.newsc40.data.repositories.news_repo.NewsRepo
+import com.pi.newsc40.domain.repositories.NewsRepo
 import com.pi.newsc40.data.repositories.news_repo.NewsRepoImpl
 import com.pi.newsc40.data.repositories.news_repo.data_sources.local_data_source.NewsLocalDataSource
 import com.pi.newsc40.data.repositories.news_repo.data_sources.local_data_source.NewsLocalDataSourceImpl
@@ -8,7 +8,6 @@ import com.pi.newsc40.data.repositories.news_repo.data_sources.remote_data_sourc
 import com.pi.newsc40.data.repositories.news_repo.data_sources.remote_data_source.NewsRemoteDataSourceImpl
 import dagger.Binds
 import dagger.Module
-import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 
