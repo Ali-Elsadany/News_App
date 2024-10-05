@@ -17,6 +17,6 @@
             android:textAlignment="center"
             android:textSize="30sp"
             android:textColor="@color/white"
-            android:text="News App" />
+            android:text="@string/news_app" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
